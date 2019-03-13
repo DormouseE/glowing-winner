@@ -1,60 +1,63 @@
-function getOperand() {
-    if (getOperand) {
-        var getOperandA = prompt('Введите первое число');
-        // if (!validateOperand(getOperandA)) {
-        //     alert('Неверно введено число');
-        //     return getOperandA()
-        // }
-        var getAction = prompt('Введите математическое действие "+, - , / ,* "')
-        if (!validateMatch(getAction)) {
-            alert('Неправильно введен знак');
-            return getAction()
-        }
-        var getOperandB = prompt('Введите второе число');
-        // if (!validateOperand(getOperandB)) {
-        //     alert('Неверно введено число');
-        //     return getOperandB()
-
-        // }
-        switch (getAction) {
-            case '+': alert(getOperandA + getOperandB); break;
-            case '-': alert(getOperandA - getOperandB); break;
-            case '*': alert(getOperandA * getOperandB); break;
-            case '/': alert(getOperandA / getOperandB); break;
-            default: alert('Неправильно');
-
-        }
-
-        
-
-        
+function getOperandA() {
+    let operandA = prompt('Введите первое число');
+    if (validate(operandA)) {
+        alert('Неверно введено число');
+        operandA = getOperandA()
     }
-    else {
-        alert('обнови страницу. =)')
-    }
+    return +operandA;
+
 }
 
-// function validateOperand(value){
-//     return !(value === '' 
-//     || value === null 
-//     || isNuN(value));
-//     }
+function getAction() {
+    let action = prompt('Введите математическое действие "+, - , / ,* "');
+    if (validateMathSign(action)) {
+        alert('Неверно введен знак');
+        action = getAction();
+    }
+    return action;
 
-function validateMatch(value) {
-    return (value === '+'
+}
+
+
+function getOperandB() {
+    let operandB = prompt('Введите второе число');
+    if (validate(operandB)) {
+        alert('Неверно введено число');
+        operandB = getOperandB()
+    }
+    return +operandB;
+
+}
+
+
+function validate(value) {
+    return (isNaN(value)
+        || value === ''
+        || value === null);
+}
+
+function validateMathSign(value) {
+    return !(value === '+'
         || value === '-'
         || value === '*'
         || value === '/')
 }
 
-const operandA = getOperand('первый'); 
-const operandB = getOperand('второй'); 
-const action = getAction(); 
-const result = calculate(operandA, operandB, action)
 
-alert('Результат: ' + result);
+function calculate(getOperandA, getAction, getOperandB) {
+    let result;
+    switch (getAction) {
+        case '+': result = getOperandA + getOperandB; break;
+        case '-': result = getOperandA - getOperandB; break;
+        case '*': result = getOperandA * getOperandB; break; 
+        case '/': result = getOperandA / getOperandB; break;
+        default: alert('error');
 
+    }
+    return result;
 
+}
 
+alert(calculate(getOperandA(),getAction(),getOperandB()));
 
 
