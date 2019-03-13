@@ -1,131 +1,57 @@
-let viktorin = confirm('Ответишь на пару вопросов?');
-if (viktorin === true) {
-    let score = 0;
+let questions =
+    [
+        {
+            question: 'Сколько будет 2+2?',
+            answer: 4,
+            type: 'prompt'
+        },
+        {
+            question: 'Солнце встает на востоке?',
+            answer: true,
+            type: 'confirm'
+        },
+        {
+            question: 'Сколько будет 5 << 2 ?',
+            answer: 20,
+            type: 'prompt'
+        }
+    ]
+let points = 0;
 
-    let first = prompt('Сколько будет 2+2?',"");
-    switch (first) {
-        case '4':
-            score += 10;
-            alert('В точку! Ты набрал ' + score + ' баллов.');
-            console.log('10');
-            break;
-        case '':
-            first = prompt('Попробуй еще раз. Сколько будет 2+2?',"");
-            switch (first) {
-                case '4':
-                    score += 10;
-                    alert('В точку! Ты набрал ' + score + ' баллов.');
-                    console.log('10');
-                    break;
-                default:
-                    alert('Ты ответил неверно. Ты набрал ' + score + ' баллов.');
-                    console.log('0');
+function askQuestion(question, i) {
+    let userAnswer;
+
+    switch (question.type) {
+        case 'prompt':
+            userAnswer = prompt(question.question, '');
+
+
+            if (!validate(userAnswer)) {
+                alert('wrong. Poprobute ewe')
+                return askQuestion(question);
             }
             break;
-        case null:
-            first = prompt('Возможно ты случайно закрыл окно! Попробуйте еще раз. Сколько будет 2+2?',"");
-            switch (first) {
-                case '4':
-                    score += 10;
-                    alert('В точку! Ты набрал ' + score + ' баллов.');
-                    console.log('10');
-                    break;
-                default:
-                    alert('Ты ответил неверно. Ты набрал ' + score + ' баллов.');
-                    console.log('0');
-            }
+        case 'confirm':
+            userAnswer = confirm(question.question);
             break;
-        default:
-            switch (isNaN(first)) {
-                case true:
-                    first = prompt('Возможно ты случайно ввел текст! Попробуйте еще раз. Сколько будет 2+2?',"");
-                    switch (first) {
-                        case '4':
-                            score += 10;
-                            alert('В точку! Ты набрал ' + score + ' баллов.');
-                            console.log('10');
-                            break;
-                        default:
-                            alert('Ты ответил неверно. Ты набрал ' + score + ' баллов.');
-                            console.log('0');
-                    }
-                    break;
-                default:
-                    alert('Ты ответил неверно. Ты набрал ' + score + ' баллов.');
-                    console.log('0');
-            }
+        default: console.log('Type is invalid');
     }
 
-    let second = confirm('Солнце встает на востоке?');
-    switch (second) {
-        case true:
-            score += 10;
-            alert('Верно! Ты набрал ' + score + ' баллов.');
-            console.log('10');
-            break;
-        case false:
-            alert('Ты ответил неверно. Ты набрал ' + score + ' баллов.');
-            console.log('0');
-    }
+    return userAnswer == question.answer;
 
-
-    let third = prompt('Сколько будет 5 << 2',"");
-    switch (third) {
-        case '20':
-            score += 10;
-            alert('Верно! Ты набрал ' + score + ' баллов.');
-            console.log('10');
-            break;
-        case '':
-            third = prompt('Попробуй еще раз! Сколько будет 5 << 2',"");
-            switch (third) {
-                case '20':
-                    score += 10;
-                    alert('В точку! Ты набрал ' + score + ' баллов.');
-                    console.log('10');
-                    break;
-                default:
-                    alert('Ты ответил неверно. Ты набрал ' + score + ' баллов.');
-                    console.log('0');
-            }
-            break;
-        case null:
-            third = prompt('Возможно ты случайно закрыл окно! Попробуйте еще раз. Сколько будет 5 << 2',"");
-            switch (third) {
-                case '20':
-                    score += 10;
-                    alert('В точку! Ты набрал ' + score + ' баллов.');
-                    console.log('10');
-                    break;
-                default:
-                    alert('Ты ответил неверно. Ты набрал ' + score + ' баллов.');
-                    console.log('0');
-            }
-            break;
-        default:
-            switch (isNaN(third)) {
-                case true:
-                    third = prompt('Возможно ты случайно ввел текст! Попробуйте еще раз. Сколько будет 5 << 2',"");
-                    switch (third) {
-                        case '20':
-                            score += 10;
-                            alert('В точку! Ты набрал ' + score + ' баллов.');
-                            console.log('10');
-                            break;
-                        default:
-                            alert('Ты ответил неверно. Ты набрал ' + score + ' баллов.');
-                            console.log('0');
-                    }
-                    break;
-                default:
-                    alert('Ты ответил неверно. Ты набрал ' + score + ' баллов.');
-                    console.log('0');
-            }
-    }
-
-    alert('Ваш счет: ' + score);
 }
 
-else {
-    alert('До свидания, дорогой пользователь. Но, если ты все-таки передумал - обнови страницу. =)');
+function validate(value) {
+    return !(isNaN(value)
+        || value === ''
+        || value === null);
+    //return !isNaN(value) || !value
 }
+
+
+for (let i = 0; i < questions.length; i++) {
+    let isAnswerCorrect = askQuestion(questions[i])
+    points += isAnswerCorrect ? 10 : 0;
+}
+
+console.log('Total points', points)
