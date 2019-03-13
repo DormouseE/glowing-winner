@@ -25,7 +25,6 @@ function askQuestion(question, i) {
         case 'prompt':
             userAnswer = prompt(question.question, '');
 
-
             if (!validate(userAnswer)) {
                 alert('wrong. Poprobute ewe')
                 return askQuestion(question);
