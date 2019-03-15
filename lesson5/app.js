@@ -1,4 +1,14 @@
-function getRandomArbitrary(1000, 2000) {
-    return Math.random() * (2000 - 1000) + 1000;
-  }
-  console.log(getRandomArbitrary)
+function dad() {
+    let xc = prompt('vedite chislo')
+    if (!isValidateNumber(xc)) {
+        alert('Неверно введено число');
+    }
+}
+
+
+
+function isValidateNumber(abz) {
+    return !(isNaN(abz)
+        || value === ''
+        || value === null);
+}
