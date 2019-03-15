@@ -1,16 +1,15 @@
-function getOperandA() {
-    let operandA = prompt('Введите первое число');
-    if (validate(operandA)) {
-        alert('Неверно введено число');
-        operandA = getOperandA()
+function getOperand(text) {
+    let operand = prompt(text, '');
+    if (!isValidateNumber(operand)) {
+        alert('Введите число');
+        return getOperand(text);
     }
-    return +operandA;
-
+    return +operand;
 }
 
 function getAction() {
     let action = prompt('Введите математическое действие "+, - , / ,* "');
-    if (validateMathSign(action)) {
+    if (isValidateMathSign(action)) {
         alert('Неверно введен знак');
         action = getAction();
     }
@@ -18,25 +17,13 @@ function getAction() {
 
 }
 
-
-function getOperandB() {
-    let operandB = prompt('Введите второе число');
-    if (validate(operandB)) {
-        alert('Неверно введено число');
-        operandB = getOperandB()
-    }
-    return +operandB;
-
-}
-
-
-function validate(value) {
-    return (isNaN(value)
+function isValidateNumber(value) {
+    return !(isNaN(value)
         || value === ''
         || value === null);
 }
 
-function validateMathSign(value) {
+function isValidateMathSign(value) {
     return !(value === '+'
         || value === '-'
         || value === '*'
@@ -44,13 +31,13 @@ function validateMathSign(value) {
 }
 
 
-function calculate(getOperandA, getAction, getOperandB) {
+function calculate(operandA, action, operandB) {
     let result;
-    switch (getAction) {
-        case '+': result = getOperandA + getOperandB; break;
-        case '-': result = getOperandA - getOperandB; break;
-        case '*': result = getOperandA * getOperandB; break; 
-        case '/': result = getOperandA / getOperandB; break;
+    switch (action) {
+        case '+': result = operandA + operandB; break;
+        case '-': result = operandA - operandB; break;
+        case '*': result = operandA * operandB; break;
+        case '/': result = operandA / operandB; break;
         default: alert('error');
 
     }
@@ -58,6 +45,11 @@ function calculate(getOperandA, getAction, getOperandB) {
 
 }
 
-alert(calculate(getOperandA(),getAction(),getOperandB()));
+const operandA = getOperand('Введите пeрвое число', '');
+const operandB = getOperand('Введите второе число', '');
+const action = getAction('Введите математический знак( + - * / )', '');
+const result = calculate(operandA, action, operandB)
+
+alert('Результат: ' + result);
 
 
