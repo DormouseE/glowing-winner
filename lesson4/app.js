@@ -1,17 +1,17 @@
 function getOperand(text) {
     let operand = prompt(text, '');
     if (!isValidateNumber(operand)) {
-        alert('Введите число');
+        alert('Неверно введено число');
         return getOperand(text);
     }
     return +operand;
 }
 
-function getAction() {
-    let action = prompt('Введите математическое действие "+, - , / ,* "');
+function getAction(text) {
+    let action = prompt(text, '');
     if (isValidateMathSign(action)) {
         alert('Неверно введен знак');
-        action = getAction();
+        action = getAction(text);
     }
     return action;
 
@@ -46,8 +46,9 @@ function calculate(operandA, action, operandB) {
 }
 
 const operandA = getOperand('Введите пeрвое число', '');
+const action = getAction('Введите математический знак "+, - , / ,* "', '');
 const operandB = getOperand('Введите второе число', '');
-const action = getAction('Введите математический знак( + - * / )', '');
+
 const result = calculate(operandA, action, operandB)
 
 alert('Результат: ' + result);
