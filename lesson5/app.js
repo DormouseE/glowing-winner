@@ -1,12 +1,12 @@
 //Задание 1
 
-function getOperand() {
-    var operand = prompt('Введите число');
-    if (isValidateNumber(operand)) {
+function getNumber() {
+    let number = prompt('Введите число');
+    if (isValidateNumber(number)) {
         alert('Неверно введено число');
-        operand = getOperand()
+        number = getOperand()
     }
-    return operand;
+    return number;
 }
 
 function isValidateNumber(value) {
@@ -16,9 +16,9 @@ function isValidateNumber(value) {
 }
 
 function sumOfEvenNumbers() {
-    var str = getOperand()
-    var sum = 0;
-    for (var i = 0, len = str.length; i < len; i++) {
+    let str = getNumber()
+    let sum = 0;
+    for (let i = 0, len = str.length; i < len; i++) {
         if (str[i] % 2 == 0)
             sum++;
     }
@@ -30,20 +30,18 @@ alert('Сумма четных чисел ' + sumOfEvenNumbers());
 
 //задание 2
 
-let numberOne;
-let numberTwo;
 let maxRandomNumber;
 
 function randomNumber(min, max) {
-    var rand = min - 0.5 + Math.random() * (max - min + 1)
-    rand = Math.round(rand);
-    return rand;
+    let random = min - 0.5 + Math.random() * (max - min + 1)
+    random = Math.round(random);
+    return random;
 }
 
-numberOne = randomNumber(1000,2000)
-numberTwo = randomNumber(1000,2000)
-console.log(numberOne,numberTwo)
+let numberOne = randomNumber(1000, 2000),
+    numberTwo = randomNumber(1000, 2000)
+console.log(numberOne, numberTwo)
 
 maxRandomNumber = Math.max(numberOne, numberTwo);
 
-alert(maxRandom);
+alert('Максимальное рандомное число ' + maxRandomNumber);
