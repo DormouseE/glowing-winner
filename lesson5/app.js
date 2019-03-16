@@ -1,3 +1,5 @@
+//задание 1 
+
 function getNumber() {
     let number = prompt('Введите число');
     if (isValidateNumber(number)) {
@@ -23,7 +25,7 @@ function sumOfEvenNumbers() {
     return sum;
 }
 
-alert('Сумма четных чисел - ' + sumOfEvenNumbers());
+alert('Сумма четных цифр - ' + sumOfEvenNumbers());
 
 
 //задание 2
