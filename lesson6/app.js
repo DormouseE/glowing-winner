@@ -7,27 +7,20 @@ const obj = {
         }
 }
 
-function clone(value) {
-        let copy;
+
+function cloningObject(value) {
+        let copy = Array.isArray(value) ? [] : {};
+
         for (let key in value) {
-                if (null == value[key] || "object" != typeof (value[key]))
-                        return value;
-                else if (Array.isArray(value[key])) {
-                        copy[key] = obj.slice(0);
-                        for (i = 0; i < copy.length; i++) {
-                                copy[i] = clone(copy[i]);
-                        }
-                        return copy;
+                if (typeof (value[key]) == "object" && value[key] != null) {
+                        copy[key] = cloningObject(value[key])
+                } else {
+                        copy[key] = value[key]
                 }
-                else {
+        };
+        return copy;
+};
 
-                        copy[key] = value[key];
-                }
-        }
-        return clone;
-}
 
-const objectCopied = clone(obj);
-console.log(obj, objectCopied)
-console.log(JSON.stringify(obj) === JSON.stringify(objectCopied));
-
+const clonedObject = cloningObject(obj);
+console.log(obj, clonedObjObject);
