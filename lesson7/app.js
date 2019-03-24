@@ -2,42 +2,46 @@ const headLine = document.getElementsByTagName('h1');
 headLine[0].textContent = "Hello, " + getName('Назовите свое имя.');
 
 function getName(text) {
-    let name = prompt(text, '')
-    if (validateName(name)) {
+    let name = prompt(text, '');
+    if (validationName(name)) {
         alert('Возможно вы ошиблись, повторите еще раз.');
         return getName(text);
     } return name;
-};
-
-
-function validateName(value) {
-    return (value === '' 
-    || value === null 
-    || !isNaN(value));
 }
 
 
-const numberUser = getNumber('Введите число от 0 до 100', '');
+function validationName(value) {
+    return (value === ''
+        || value === null
+        || !isNaN(value));
+}
+
 
 function getNumber(value) {
-    let number = prompt(value, '')
-    if (isValidNumber(number)) {
+    let number = prompt('Введите число от 0 до 100', '');
+    if (validationNumber(number)) {
         alert('Возможно вы ошиблись, повторите еще раз.');
-        return getName(value);
+        return getNumber(value);
     }return number;
 }
 
-for (let i = 1; i <= numberUser; i++) {
-    let newElementLi = document.createElement('li');
-    newElementLi.innerHTML = i;
-    document.body.appendChild(newElementLi)
-}
-
-function isValidNumber(value) {
+function validationNumber(value) {
     return (isNaN(value)
         || value === ''
         || value === null
-        || value > 100
-        || value < 1);
+        || value < 1
+        || value > 100);
 }
 
+function create(value) {
+    let newElementUl = document.createElement('ul');
+    for (let i = 1; i <= value; i++) {
+        let newElementLi = document.createElement('li');
+        newElementLi.innerHTML = i;
+        newElementUl.appendChild(newElementLi);
+    }
+    return newElementUl;
+}
+
+const createList = create(getNumber());
+document.body.appendChild(createList);
