@@ -8,12 +8,12 @@ list.addEventListener('click', removeElem);
 function addItems() {
     let li = document.createElement('li');
     list.appendChild(li)
-};
+}
 
 function toggleBackgroundColor(element) {
     if (element.target.tagName === 'LI')
         element.target.style.background = element.target.style.background === 'red' ? 'yellow' : 'red';
-};
+}
 
 
 function removeElem(element) {
