@@ -1,24 +1,24 @@
 const button = document.querySelector('button');
 const list = document.querySelector('ul');
 
-button.addEventListener('click', addItems);
-list.addEventListener('click', removeItems);
-list.addEventListener('click', switchBackgroundColorOfItems);
+button.addEventListener('click', addItem);
+list.addEventListener('click', removeItem);
+list.addEventListener('click', switchBackgroundColorOfItem);
 
-function addItems() {
+function addItem() {
     let li = document.createElement('li');
     list.appendChild(li)
 }
 
-function removeItems(element) {
-    if (element.target.tagName === 'LI')
-        if (element.altKey) element.target.remove();
+function removeItem (event) {
+    if (event.target.tagName === 'LI')
+        if (event.altKey) event.target.remove();
 }
 
 
-function switchBackgroundColorOfItems(element) {
-    if (element.target.tagName === 'LI')
-        element.target.style.background = element.target.style.background === 'red' ? 'yellow' : 'red';
+function switchBackgroundColorOfItem(event) {
+    if (event.target.tagName === 'LI')
+        event.target.style.background = event.target.style.background === 'red' ? 'yellow' : 'red';
 }
 
 
