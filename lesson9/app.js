@@ -1,4 +1,3 @@
-const deleteContactBtn = document.getElementById('deleteContactBtn')
 const addContactBtn = document.getElementById('addContactBtn');
 const contactsList = document.getElementById('contactsList');
 const contactNameInput = document.getElementById('nameInput');
@@ -7,7 +6,6 @@ const contactAgeInput = document.getElementById('ageInput');
 const contactTemplate = document.getElementById('contactTemplate').innerHTML;
 
 addContactBtn.addEventListener('click', onAddContactBtnClick);
-deleteContactBtn.addEventListener('click', onDeleteContactBtnClick)
 addContact({name: 'Alex', phone:'111'});
 
 function onAddContactBtnClick(){
@@ -42,8 +40,7 @@ function resetContactForm(){
     contactAgeInput.value = '';
 }
 
-function onDeleteContactBtnClick(e){
-    if(e.target.tagName === 'BUTTON'){
-        e.target.parentNode.remove();
-    }
-}
+function deleteContactRow(btn) {
+    const row = btn.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+  }
