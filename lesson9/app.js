@@ -29,12 +29,6 @@ function submitContact() {
   resetContactForm();
 }
 
-function deleteContact(e) {
-  if (e.id === "deleteContactBtn") {
-    e.parentNode.parentNode.remove();
-  }
-}
-
 function addContact(contact) {
   const contactTr = document.createElement('tr');
   contactTr.innerHTML = contactTemplete
@@ -51,3 +45,8 @@ function resetContactForm() {
   contactAgeInput.value = '';
 }
 
+function deleteContact(e) {
+  if (e.id === "deleteContactBtn") {
+    e.parentNode.parentNode.remove();
+  }
+}
