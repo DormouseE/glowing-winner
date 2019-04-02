@@ -6,7 +6,7 @@ function calculator(operand) {
         add: function add(value) {
             return operand + value;
         },
-        div: function div(value) {
+        divide: function divide(value) {
             return operand / value;
         },
         sub: function sub(value) {
@@ -18,7 +18,7 @@ function calculator(operand) {
         set: function set(value) {
             return operand = value;
         },
-        get: function get(value) {
+        get: function get() {
             return operand;
         }
     }
