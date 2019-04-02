@@ -6,11 +6,11 @@ function calculator(operand) {
         add: function add(value) {
             return operand + value;
         },
-        divide: function divide(value) {
-            return operand / value;
-        },
         sub: function sub(value) {
             return operand - value;
+        },
+        divide: function divide(value) {
+            return operand / value;
         },
         mult: function mult(value) {
             return operand * value;
