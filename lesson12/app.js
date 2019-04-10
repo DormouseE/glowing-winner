@@ -17,7 +17,7 @@ function Hamburger(size, stuffing) {
 
 Hamburger.prototype.addTopping = function (topping) {
     this.price += topping.price;
-    this.calories += topping.calories
+    this.calories += topping.calories;
 }
 
 Hamburger.prototype.removeTopping = function (topping) {
@@ -30,7 +30,7 @@ Hamburger.prototype.calculatePrice = function () { return this.price; }
 Hamburger.prototype.calculateCalories = function () { return this.calories; }
 
 
-console.log("Calories: " + hamburger.calculateCalories());
+
 console.log("Price: " + hamburger.calculatePrice());
 
 hamburger.addTopping(Hamburger.TOPPING_MAYO);
@@ -38,7 +38,6 @@ console.log("Calories: " + hamburger.calculateCalories());
 console.log("Price: " + hamburger.calculatePrice());
 
 hamburger.addTopping(Hamburger.TOPPING_SPICE);
-console.log("Calories: " + hamburger.calculateCalories());
 console.log("Price: " + hamburger.calculatePrice());
 
 console.log(hamburger)
