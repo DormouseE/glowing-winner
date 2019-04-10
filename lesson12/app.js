@@ -41,11 +41,11 @@ console.log("Price: " + hamburger.calculatePrice());
 
 hamburger.addTopping(Hamburger.TOPPING_MAYO);
 console.log("Calories: " + hamburger.calculateCalories());
-console.log("Price with mayo: " + hamburger.calculatePrice());
+console.log("Price: " + hamburger.calculatePrice());
 
 hamburger.addTopping(Hamburger.TOPPING_SPICE);
 console.log("Calories: " + hamburger.calculateCalories());
-console.log("Price with spice: " + hamburger.calculatePrice());
+console.log("Price: " + hamburger.calculatePrice());
 
 console.log(hamburger)
 
