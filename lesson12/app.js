@@ -1,6 +1,5 @@
 'use strict';
 
-
 Hamburger.SIZE_SMALL = { price: 50, calories: 20 };
 Hamburger.SIZE_BIG = { price: 100, calories: 40 };
 Hamburger.STUFFING_CHEESE = { price: 10, calories: 20 };
@@ -16,36 +15,19 @@ function Hamburger(size, stuffing) {
     this.calories = size.calories + stuffing.calories;
 }
 
-// function calculatePrice() {
-//     return this.price;
-// }
-
-// function calculateCalories() {
-//     return this.calories;
-// }
-
-// function addTopping(topping) {
-//     this.price += topping.price;
-//     this.calories += topping.calories;
-// }
-
-// function removeTopping(topping) {
-//     this.price -= topping.price;
-//     this.calories -= topping.calories;
-// }
-Hamburger.prototype.calculatePrice = function () { return this.price; }
-Hamburger.prototype.calculateCalories = function () { return this.calories; };
-
 Hamburger.prototype.addTopping = function (topping) {
-this.price += topping.price;
+    this.price += topping.price;
     this.calories += topping.calories
-};
+}
 
 Hamburger.prototype.removeTopping = function (topping) {
-this.price -= topping.price;
+    this.price -= topping.price;
     this.calories -= topping.calories;
-};
+}
 
+Hamburger.prototype.calculatePrice = function () { return this.price; }
+
+Hamburger.prototype.calculateCalories = function () { return this.calories; }
 
 
 console.log("Calories: " + hamburger.calculateCalories());
