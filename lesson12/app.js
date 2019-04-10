@@ -35,15 +35,17 @@ Hamburger.TOPPING_SPICE = {price : 15, calories : 0};
 Hamburger.TOPPING_MAYO = {price : 20, calories : 5};
 
 const hamburger = new Hamburger(Hamburger.SIZE_BIG, Hamburger.STUFFING_CHEESE);
+
 console.log("Calories: " + hamburger.calculateCalories());
 console.log("Price: " + hamburger.calculatePrice());
 
 hamburger.addTopping(Hamburger.TOPPING_MAYO);
 console.log("Calories: " + hamburger.calculateCalories());
-console.log("Price: " + hamburger.calculatePrice());
+console.log("Price with mayo: " + hamburger.calculatePrice());
 
 hamburger.addTopping(Hamburger.TOPPING_SPICE);
-console.log("Price: " + hamburger.calculatePrice());
+console.log("Calories: " + hamburger.calculateCalories());
+console.log("Price with spice: " + hamburger.calculatePrice());
 
 console.log(hamburger)
 
