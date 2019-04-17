@@ -1,0 +1,45 @@
+.accordeon-body.open {
+    display: block;
+}
+
+.accordeon-body.close {
+    display: none;
+}
+
+.accordeon-body {
+    display: none;
+    background-color: lightgreen;
+    height: 30px;
+}
+
+.accordeon-body {
+    display: none;
+    background-color: lightgreen;
+    padding: 20px;
+}
+
+.accordeon-heading:hover {
+    background-color: darkgrey;
+}
+
+.accordeon-heading {
+    padding: 20px;
+    color: white;
+    background-color: #444
+}
+
+
+#container {
+    font-family: sans-serif;
+    background-color: #eee;
+    color: #444;
+    width: 100%;
+    text-align: center;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+.accordion-element {
+    margin: 10px;
+}
