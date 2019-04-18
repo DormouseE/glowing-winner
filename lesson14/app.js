@@ -1,9 +1,9 @@
 class Gallery {
 
 
-    constructor(el, {delay}) {
+    constructor(el, config) {
         this.container = el;
-        this.delay = delay;
+        this.config = config;
         this.currentImg = 0;
         this.init();
     }
@@ -16,9 +16,9 @@ class Gallery {
 
 
     autoShow() {
-        if (this.delay) {
+        if (this.config.delay) {
             this.showNextImg();
-            setTimeout(() => this.autoShow(), this.delay);
+            setTimeout(() => this.autoShow(), this.config.delay);
         }
     }
 
@@ -57,9 +57,9 @@ class Gallery {
 
     showImg(e) {
         let slides = document.querySelectorAll('li');
-        slides[this.currentImg].className = '';
+        slides[this.currentImg].className = 'gallery';
         this.currentImg = (e + slides.length) % slides.length;
-        slides[this.currentImg].className = 'showing';
+        slides[this.currentImg].className = 'gallery showing';
     }
 
 
