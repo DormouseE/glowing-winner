@@ -37,8 +37,8 @@ class Album {
     }
 
     onShowImg(e) {
-        if (e.target.className == Album.ITEM_CLASS) {
-            this.duplicateImg(e.target.children[0]);
+        if (e.target.nodeName == 'IMG') {
+            this.duplicateImg(e.target);
         }
     }
 
