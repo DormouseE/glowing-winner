@@ -6,16 +6,13 @@
     width: 1000px;
     list-style: none;
     justify-content: center;
-
 }
-
 
 .album--main-img {
     display: flex;
     width: 500px;
     height: 500px;
-    border:1px solid black;
-    
+    border: 1px solid black;
 }
 
 .album-item {
@@ -25,8 +22,6 @@
     padding: 10px;
     list-style: none;
     cursor: pointer;
-
-    
 }
 
 img {

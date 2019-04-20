@@ -11,8 +11,6 @@ class Album {
         this.applyClasses()
         this.setEvent();
         this.addMainItem();
-
-
     }
 
     applyClasses() {
@@ -27,9 +25,9 @@ class Album {
         mainLi.className = 'album--main-img';
 
         this.mainImg = document.createElement('img');
+
         mainLi.appendChild(this.mainImg);
         this.el.appendChild(mainLi);
-
     }
 
     setEvent() {
@@ -46,9 +44,7 @@ class Album {
         this.mainImg.src = el.src;
         this.mainImg.alt = el.alt;
     }
-
 }
-
 
 const album = new Album(document.getElementById('container'));
 
