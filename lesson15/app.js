@@ -26,9 +26,7 @@ class Album {
         const mainLi = document.createElement('li');
         mainLi.className = 'album--main-img';
 
-        const mainImg = document.createElement('img');
-        this.mainImg = mainImg;
-
+        this.mainImg = document.createElement('img');
         mainLi.appendChild(this.mainImg);
         this.el.appendChild(mainLi);
 
