@@ -1,0 +1,66 @@
+class Tabset {
+    static CONTAINER_CLASS = 'tabset';
+    static COLLAPSE_OTHER = true;
+
+
+    constructor(el) {
+        this.el = el;
+        this.init();
+    }
+
+    init() {
+        this.applyClass();
+        this.setEvent();
+        
+        
+    }
+
+    applyClass() {
+        this.el.className = Tabset.CONTAINER_CLASS;
+    }
+
+    setEvent() {
+        this.el.addEventListener('click', this.onContainerClick.bind(this))
+    }
+
+    onContainerClick(e) {
+        if (e.target.className == 'tabset-heading') {
+            this.toggleElement(e.target.parentNode);
+        }
+    }
+
+    toggleElement(el) {
+        if (el.children[1].classList.contains('open')) {
+            this.closeElement(el);
+        } else {
+            this.openElement(el);
+        }
+    }
+
+    closeElement(el) {
+        el.children[0].classList.remove('active')
+        el.children[1].classList.remove('open')
+    }
+
+    closeAllElements() {
+        Array.prototype.forEach.call(this.el.children, this.closeElement);
+    }
+
+    openElement(el) {
+        if (Tabset.COLLAPSE_OTHER) {
+            this.closeAllElements();
+        }
+        this.addOpenClasses(el)
+    }
+
+    addOpenClasses(el) {
+        el.children[0].classList.add('active')
+        el.children[1].classList.add('open')
+    }
+
+
+}
+
+const tabs = new Tabset(
+    document.getElementById('container')
+);
