@@ -2,13 +2,10 @@ body {
     padding: 10px;
 }
 
-#container{
-    display: flex;
-    flex-direction: row;
-}
 
 .tabset{
-    
+    display: flex;
+    flex-direction: row;
 }
 .tabset-heading {
     flex-direction: row;
