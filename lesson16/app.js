@@ -10,9 +10,9 @@ class Tabset {
 
     init() {
         this.applyClass();
+        this.show(0)
         this.setEvent();
-        
-        
+            
     }
 
     applyClass() {
@@ -53,6 +53,11 @@ class Tabset {
     addOpenClasses(el) {
         el.children[0].classList.add('active')
         el.children[1].classList.add('open')
+    }
+
+
+    show(index){
+        this.openElement(this.el.children[index]);
     }
 
 
