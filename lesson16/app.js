@@ -25,16 +25,13 @@ class Tabset {
 
     onContainerClick(e) {
         if (e.target.className == 'tabset-heading') {
-            this.toggleElement(e.target.parentNode);
+            this.showElement(e.target.parentNode);
         }
     }
 
-    toggleElement(el) {
-        if (el.children[1].classList.contains('open')) {
+    showElement(el) {
             this.closeElement(el);
-        } else {
             this.openElement(el);
-        }
     }
 
     closeElement(el) {
