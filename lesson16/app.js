@@ -1,7 +1,5 @@
 class Tabset {
     static CONTAINER_CLASS = 'tabset';
-    static COLLAPSE_OTHER = true;
-
 
     constructor(el) {
         this.el = el;
@@ -10,9 +8,8 @@ class Tabset {
 
     init() {
         this.applyClass();
-        this.show(0)
+        this.show(2)
         this.setEvent();
-            
     }
 
     applyClass() {
@@ -30,8 +27,8 @@ class Tabset {
     }
 
     showElement(el) {
-            this.closeElement(el);
-            this.openElement(el);
+        this.closeElement(el);
+        this.openElement(el);
     }
 
     closeElement(el) {
@@ -44,7 +41,7 @@ class Tabset {
     }
 
     openElement(el) {
-        if (Tabset.COLLAPSE_OTHER) {
+        if (Tabset) {
             this.closeAllElements();
         }
         this.addOpenClasses(el)
@@ -55,12 +52,9 @@ class Tabset {
         el.children[1].classList.add('open')
     }
 
-
-    show(index){
+    show(index) {
         this.openElement(this.el.children[index]);
     }
-
-
 }
 
 const tabs = new Tabset(
