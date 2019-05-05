@@ -62,13 +62,13 @@ class Users {
 
 
   fetchUserPostsAndAlbums(id){
-    const urlPosts = Users.BASE_URL + Users.POSTS_PATH + '?userId=' + id;
-    const urlAlbums = Users.BASE_URL + Users.ALBUMS_PATH + '?userId=' + id;
+    const postUrl = Users.BASE_URL + Users.POSTS_PATH + '?userId=' + id;
+    const albumUrl = Users.BASE_URL + Users.ALBUMS_PATH + '?userId=' + id;
 
-    request('get', urlPosts)
+    request('get', postUrl)
       .then((resp) => {
         this.renderUserPosts(resp);
-        return request('get', urlAlbums)
+        return request('get', albumUrl)
       })
       .then((resp) => this.renderUserAlbums(resp));
   }
