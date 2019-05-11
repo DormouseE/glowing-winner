@@ -13,16 +13,14 @@ let contacts = [];
 init();
 
 function init() {
-    addClass()
+    
     addContactBtn.addEventListener('click', onAddContactBtnClick);
     contactsList.addEventListener('click', onContactsListClick);
 
     fetchContactsList();
 }
 
-function addClass(){
-    const contactsTable = document.getElementById('contacts-table');
-    contactsTable.classList.add('contacts-table');}
+
 
 function fetchContactsList() {
     return fetch(CONTACTS_URL)
@@ -59,14 +57,15 @@ function renderContactsList(data) {
 }
 
 function submitContact() {
-    const contacts = {
-        name: contactNameInput.value, isDone: false,
-        phone: contactPhoneInput.value, isDone: false,
-        surname: contactSurnameInput.value, isDone: false,
-        email: contactEmailInput.value, isDone:false
+    const contact = {
+        name: contactNameInput.value, 
+        phone: contactPhoneInput.value, 
+        surname: contactSurnameInput.value, 
+        email: contactEmailInput.value, 
+        isDone:false
     };
     
-    addContact(contacts).then(fetchContactsList)
+    addContact(contact).then(fetchContactsList)
 }
 
 
@@ -81,16 +80,21 @@ function addContact(contacts) {
    })
 }
 
+
 function onContactsListClick(event){
-    if (event.target.classList.contains('contacts')){
-        toggleContactState(event.target)
+    if (event.target.tagName === 'BUTTON') {
+        deleteContact(event.target.parentNode.parentNode)
+            .then(fetchContactsList);
+
+    }else if(event.target.parentNode.classList.contains('contacts')){
+        toggleContactState(event.target.parentNode)
             .then(fetchContactsList);
     }
 }
 
 
 function toggleContactState(el){
-    const id = el.dataset.contactID;
+    const id = el.dataset.contactId;
     const contact = contacts.find((el) => {return el.id == id});
 
     contact.isDone = !contact.isDone;
@@ -99,6 +103,20 @@ function toggleContactState(el){
     
     return fetch(CONTACTS_URL + '/' + contact.id, {
         method: "PUT",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(contact)
+    })
+}
+
+function deleteContact(el){
+    const id = el.dataset.contactId;
+    const contact = contacts.find((el) => {return el.id == id});
+
+    return fetch(CONTACTS_URL + '/' + contact.id, {
+        method: "DELETE",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
