@@ -13,12 +13,16 @@ let contacts = [];
 init();
 
 function init() {
+    addClass()
     addContactBtn.addEventListener('click', onAddContactBtnClick);
     contactsList.addEventListener('click', onContactsListClick);
 
     fetchContactsList();
 }
 
+function addClass(){
+    const contactsTable = document.getElementById('contacts-table');
+    contactsTable.classList.add('contacts-table');}
 
 function fetchContactsList() {
     return fetch(CONTACTS_URL)
