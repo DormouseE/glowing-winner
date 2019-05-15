@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="style/normalize.css">
+    <link rel="stylesheet" href="style/skeleton.css">
+    <link rel="stylesheet" href="style/styles.css">
+    <script src="./app.js" async></script>
+</head>
+
+<body>
+    <form id="newContactForm">
+        <table class="u-full-width contacts-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="contactsList"></tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        <input type="text" id="nameInput" name="nameInput">
+                    </td>
+                    <td>
+                        <input type="text" id="phoneInput" phone="phoneInput">
+                    </td>
+                    <td>
+                        <input type="text" id="emailInput" email="emailInput">
+                    </td>
+                    <td><input type="submit" class="btn" value="Add Contact"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+
+    <script type="text/template" id="contactTemplate">
+        <tr data-contact-id="{{id}}" class="{{class}}">
+            <td>{{name}}</td>
+            <td>{{phone}}</td>
+            <td>{{email}}</td>
+            <td><button type="button" class="btn delete">Delete</button></td>
+            <td><button type="button" class="btn edit">Edit</button></td>
+        </tr>
+    </script>
+
+    <script type="text/template" id="editTemplate">
+        <tr data-contact-id="{{id}}" class="{{class}}">
+              <td>
+                  <input type="text" id = "editName" value = {{name}}>
+              </td>
+              <td>
+                <input type="text" id = "editPhone" value = {{phone}}>
+              </td>
+              <td>
+                <input type="text" id = "editEmail" value = {{email}}>
+              </td>
+              <td>
+                <button class = "btn cancel" type="button">Cancel</button>
+              </td>
+              <td>
+                <button class = "btn save" type="button">Save</button>
+              </td>
+        </tr>
+    </script>
+
+</body>
+
+</html>

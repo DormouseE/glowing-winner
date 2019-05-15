@@ -1,16 +1,17 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Contacts</title>
-
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="style/normalize.css">
+    <link rel="stylesheet" href="style/skeleton.css">
     <script src="./app.js" async></script>
 </head>
 <body>
-    <table class="u-full-width">
+    <table class="u-full-width contacts-table">
         <thead>
             <tr>
                 <th>Name</th>
@@ -35,7 +36,7 @@
                 <td>
                     <input type="text" id="emailInput">
                 </td>
-                <td><button id="addContactBtn">Add Contact</button></td>
+                <td><button id="addContactBtn" class="btn">Add Contact</button></td>
             </tr>
         </tfoot>
     </table>
@@ -45,7 +46,7 @@
         <td>{{phone}}</td>
         <td>{{surname}}</td>
         <td>{{email}}</td>
-        <td><button>Delete</button></td></tr>
+        <td><button class="btn">Delete</button></td></tr>
     </script>
 </body>
 </html>
