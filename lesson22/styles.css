@@ -1,0 +1,18 @@
+.ui-dialog {
+    position: fixed; 
+    padding: 10px;
+    color: white;
+    border-radius: 15px;
+}
+.ui-dialog input {
+    width: 100%
+}
+.ui-dialog button {
+    color: #6f6f6f;
+    margin-top: 10px; 
+    float: right;
+}
+
+.ui-dialog{
+    background-color: rgb(2, 63, 63);
+}

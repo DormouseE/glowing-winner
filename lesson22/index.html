@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="../common/css/normalize.css">
+    <link rel="stylesheet" href="../common/css/skeleton.css">
+    <link rel="stylesheet" href="./styles.css">
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous" defer></script>
+      <script
+    src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+    crossorigin="anonymous" defer></script>
+    <script src="./app.js" defer></script>
+</head>
+<body>
+    <div class="contact-list" class="">
+        <button id="addContactBtn" class="add btn">Add Contact</button>
+        <div id="addModalWindow">
+            <p>Contact Name</p>
+            <input type="hidden" id="idInput" name="idInput">
+            <input type="text" id="nameInput">
+            <p>Contact Phone</p>
+            <input type="text" id="phoneInput">
+            <p>Contact Email</p>
+            <input type="text" id="emailInput">
+        </div>
+        <table class="u-full-width" id="contacts-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="contactForm"></tbody>
+        </table>
+        <script type="text/template" id="contactTemplate">
+            <tr data-contact-id='{{id}}' class='contactItem {{class}}'>
+                <td>
+                    <p>{{name}}</p>
+                </td>
+                <td>
+                    <p>{{phone}}</p>
+                </td>
+                <td>
+                    <p>{{email}}</p>
+                </td>
+                <td class ='action-buttons'>
+                    <button type="button" class="btn delete">Delete</button>
+                    <button type="button" class="btn edit">Edit</button>
+                </td>
+            </tr>
+        </script>
+        
+    </div>
+</body>
+</html>
