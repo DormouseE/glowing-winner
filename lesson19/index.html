@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -49,4 +50,57 @@
         <td><button class="btn">Delete</button></td></tr>
     </script>
 </body>
+=======
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="style/normalize.css">
+    <link rel="stylesheet" href="style/skeleton.css">
+    <link rel="stylesheet" href="style/styles.css">
+    <script src="./app.js" async></script>
+</head>
+<body>
+    <table class="u-full-width contacts-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="contactsList"></tbody>
+        <tfoot>
+            <tr>
+                <td>
+                    <input type="text" id="nameInput">
+                </td>
+                <td>
+                    <input type="text" id="phoneInput">
+                </td>
+                <td>
+                    <input type="text" id="surnameInput">
+                </td>
+                <td>
+                    <input type="text" id="emailInput">
+                </td>
+                <td><button id="addContactBtn" class="btn">Add Contact</button></td>
+            </tr>
+        </tfoot>
+    </table>
+    <script type="text/template" id="contactTemplate">
+        <tr data-contact-id='{{id}}' class='contacts {{class}}'>
+        <td>{{name}}</td>
+        <td>{{phone}}</td>
+        <td>{{surname}}</td>
+        <td>{{email}}</td>
+        <td><button class="btn">Delete</button></td></tr>
+    </script>
+</body>
+>>>>>>> 87604c47305ce44cb3cb54294f6561af0d09a518
 </html>
