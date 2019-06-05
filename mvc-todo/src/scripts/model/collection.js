@@ -41,7 +41,7 @@ export default class ToDoCollection {
     }
 
     changeState(id) {
-        console.log('2')
+        console.log('change')
         const item = this.get(id)
         item.isDone = !item.isDone;
         item.save(id);

@@ -13,8 +13,6 @@ export default class ToDoModel {
         this.url = collectionUrl;
 
         this.setData(data);
-
-        console.log('model constructor', this.url);
     }
 
     setData(data){
@@ -22,7 +20,7 @@ export default class ToDoModel {
     }
 
     save() {
-         console.log('3')
+         console.log('save')
         if (this.id) {
             return this.change();
         } else {

@@ -18,7 +18,7 @@ export default class ToDoController {
 
         this.view.onDelete = (id) => this.delete(id);
         this.form.onSubmit = (newItem) => this.addItem(newItem);
-        this.view.onItem = (todo) => this.changeStateItem(todo);
+        this.view.onItem = (id) => this.changeStateItem(id);
 
         this.collection
             .fetch()
@@ -31,7 +31,7 @@ export default class ToDoController {
     }
 
     addItem(newItem) {
-        console.log('ons')
+        console.log('add')
         this.collection
             .addTodo(newItem)
             .then(this.renderData);
@@ -45,7 +45,7 @@ export default class ToDoController {
     }
 
     changeStateItem(id) {
-        console.log('1')
+        console.log('state')
         this.collection
             .changeState(id)
             .then(this.renderData)
