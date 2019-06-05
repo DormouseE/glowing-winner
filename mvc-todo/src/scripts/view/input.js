@@ -4,13 +4,13 @@ import $ from 'jquery';
 export default class ToDoForm{
     constructor(){
         this.appendElement()
-        this.$el.submit((ev) => this.submit(ev))
+        this.$el.submit((event) => this.submit(event))
     }
     appendElement(){
         this.$el = $(
             `<form id="addTaskForm">
                 <div class="row">
-                    <div class="eight columns">
+                    <div class="ten columns">
                         <input type="text" id="taskNameInput" class="u-full-width">
                     </div>
                     <div class="two columns">
@@ -23,11 +23,13 @@ export default class ToDoForm{
        
         $(document.body).append(this.$el);
     }
-    submit(ev){
-        ev.preventDefault();
-        const newItem ={};
-        newItem.title = this.$nameInput.val();
-        newItem.isDone = false;
+    submit(event){
+        event.preventDefault();
+        const newItem = {
+            title: this.$nameInput.val(),
+            isDone: false
+        };
+
         this.onSubmit && this.onSubmit(newItem);
     }
 }

@@ -8,7 +8,7 @@ export default class TodoView{
         this.onItemClick = this.onItemClick.bind(this);
 
         this.$el.on('click', '.delete-btn', this.onDeleteBtnClick);
-        this.$el.on('click','.todo', this.onItemClick);
+        this.$el.on('click','.todo .text-item', this.onItemClick);
         this.$taskNameInput = $('#taskNameInput');
     }
 
@@ -40,14 +40,14 @@ export default class TodoView{
     renderItem(el){
         const todoClass = el.isDone? 'done': ''
         return `<div data-todo-id=${el.id} id="todoDiv" class="todo ${todoClass}">
-                    ${el.title}
+                   <p class="text-item">${el.title}</p>
                     <button class="delete-btn">X</button>
                 </div>`
     }
 
 
     onItemClick(event) {
-        const id = $(event.target).data('todoId')
+        const id = this.getId(event.target);
         this.onItem && this.onItem(id);
     }
 }   
