@@ -40,13 +40,4 @@ export default class ToDoCollection {
             .then(this.fetch);
     }
 
-    changeState(id) {
-        console.log('change')
-        const item = this.get(id)
-        item.isDone = !item.isDone;
-        item.save(id);
-        return Promise.resolve();
-
-    }
-
 }

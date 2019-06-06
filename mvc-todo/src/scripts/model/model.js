@@ -58,4 +58,12 @@ export default class ToDoModel {
             method: "DELETE",
         })
     }
+
+    changeState() {
+        console.log('change')
+        this.isDone = !this.isDone;
+        this.save();
+        return Promise.resolve();
+    }
+
 }
