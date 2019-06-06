@@ -11,8 +11,8 @@ export default class ToDoController {
     constructor() {
         console.log('contorller constructor');
         this.collection = new ToDoCollection(config.todoUrl);
-        this.view = new TodoView();
-        this.form = new ToDoForm
+        this.view = new TodoView;
+        this.form = new ToDoForm;
 
         this.renderData = this.renderData.bind(this);
 
@@ -45,10 +45,10 @@ export default class ToDoController {
     }
 
     changeStateItem(id) {
-        console.log('state')
-        this.collection
-            .changeState(id)
-            .then(this.renderData)
+        const model = this.collection.get(id);
+        model
+            .changeState()
+            .then(this.renderData);
     }
 
 }
