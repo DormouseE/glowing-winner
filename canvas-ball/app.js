@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 
 
 const ballRadius = document.getElementById('range');
-const collorBall = document.getElementById('coloricker');
+const collorBall = document.getElementById('colorpicker');
 
 let width = canvas.width;
 let height = canvas.height;
