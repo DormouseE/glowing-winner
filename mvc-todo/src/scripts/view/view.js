@@ -23,7 +23,7 @@ export default class TodoView{
     }
 
     getId(el){
-        return $(el).closest('#todoDiv').data('todoId');
+        return $(el).closest('.todo').data('todoId');
     }
 
     onDeleteBtnClick(event){
@@ -39,7 +39,7 @@ export default class TodoView{
 
     renderItem(el){
         const todoClass = el.isDone? 'done': ''
-        return `<div data-todo-id=${el.id} id="todoDiv" class="todo ${todoClass}">
+        return `<div data-todo-id=${el.id} class="todo ${todoClass}">
                    <p class="text-item">${el.title}</p>
                     <button class="delete-btn">X</button>
                 </div>`
