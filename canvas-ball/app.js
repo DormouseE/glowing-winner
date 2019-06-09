@@ -35,8 +35,7 @@ function init() {
 
 
 function drawBall(x, y) {
-    circle(x, y, ballRadius, true)
-
+    circle(x, y, true)
 }
 
 
