@@ -9,11 +9,12 @@
     <script src="./app.js" async></script>
 </head>
 <body>
-   <!-- <canvas id="myCanvas" width="600" height="600"></canvas> -->
-   <ul id="messages"></ul>
-<form id="messageForm">
-    <input type="text" id="messege">
-    <input type="submit" id="send">
-</form>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <div id="legend">
+        <label for="ballRange">Ball Radius</label>
+        <input type="range" id="range" min="10" max="100" value="10" >
+        <label for="ballColoricker">Ball Color</label>
+        <input type="color" id="colorpicker">
+    </div>
 </body>
 </html>
