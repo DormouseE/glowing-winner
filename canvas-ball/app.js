@@ -53,7 +53,7 @@ function circle(x, y, fillCircle) {
     ctx.fillRect(0, 0, width, height);
     ctx.strokeRect(0, 0, width, height);
     ctx.arc(x, y, ballRadius.value, 0, Math.PI * 2, false);
-    ctx.fillStyle = collorBall.value || 'gold';
+    ctx.fillStyle = collorBall.value ;
     if (fillCircle) {
         ctx.fill()
     } else {
