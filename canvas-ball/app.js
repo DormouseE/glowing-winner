@@ -44,7 +44,7 @@ function circle(x, y, fillCircle) {
     ctx.shadowOffsetX = 0;
     ctx.shadowOffsetY = 0;
     ctx.shadowBlur = 30;
-    ctx.shadowColor = 'silver';
+    ctx.shadowColor = 'gold';
     let gradient = ctx.createLinearGradient(0, 0, width, height);
     gradient.addColorStop(0, "gold");
     gradient.addColorStop(1, "#EE82EE");
