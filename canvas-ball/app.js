@@ -1,118 +1,56 @@
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+import { doesNotReject } from "assert";
 
+// const img = new Image();
+// const canvas = document.getElementById('myCanvas')
+// const ctx = canvas.getContext('2d')
+// let frame = 1;
+// let counts = 0
 
-const ballRadius = document.getElementById('range');
-const collorBall = document.getElementById('colorpicker');
+// img.onload = function(){
+//     console.log('loaded')
+//     draw();
+// }
 
-let width = canvas.width;
-let height = canvas.height;
+// img.src = './actor_sprite.png'
 
+// function draw(){
+//     ctx.clearRect(0,0,600,600)
+//     ctx.drawImage(img, frame*150,0,150,168, counts*10, 0, 150, 168);
+//     frame++;
+//     counts++;
+//     if(frame>=4){frame=1}
+//     if(counts>=60){counts=0}
+//     setTimeout(draw,100);
+// }
 
-let x = width / 2
-let y = height / 2
-let xSpead = 0;
-let ySpead = -5;
+const ws = new WebSocket('ws://fep-app.herokuapp.com/')
+const messegesList = document.getElementById('messages')
+const form = document.getElementById('messageForm')
+const messageInput = document.getElementById('messege')
 
-
-let keyAction = {
-    37: 'left',
-    38: 'up',
-    39: 'right',
-    40: 'down'
+ws.onopen = function (e) {
+    console.log('open', e)
+    // ws.close()
+}
+ws.onclose = function (e) {
+    console.log('close', e)
+}
+ws.onerror = function (e) {
+    console.log('error', e)
 }
 
-
-init();
-
-
-function init() {
-    setInterval(animate, 25);
-    onInputChange();
-    keyEvent()
-
+ws.onmessage = function(e){
+    const message = e.data;
+    renderMessage(message)
+    console.log('messege', e)
 }
 
-
-function drawBall(x, y) {
-    circle(x, y, true)
+function renderMessage(message){
+    messegesList.innerHTML += `<li>${message}</li>`
 }
-
-
-function circle(x, y, fillCircle) {
-    ctx.beginPath()
-    ctx.shadowOffsetX = 0;
-    ctx.shadowOffsetY = 0;
-    ctx.shadowBlur = 30;
-    ctx.shadowColor = 'gold';
-    let gradient = ctx.createLinearGradient(0, 0, width, height);
-    gradient.addColorStop(0, "gold");
-    gradient.addColorStop(1, "#EE82EE");
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, width, height);
-    ctx.strokeRect(0, 0, width, height);
-    ctx.arc(x, y, ballRadius.value, 0, Math.PI * 2, false);
-    ctx.fillStyle = collorBall.value ;
-    if (fillCircle) {
-        ctx.fill()
-    } else {
-        ctx.stroke()
-    }
+function onFormSubmit(e){
+    e.preventDefault; 
+    const message = messageInput.value
+    ws.send(message)
+    form.reser();
 }
-
-function onInputChange() {
-    ballRadius.addEventListener('change', drawBall);
-    collorBall.addEventListener('change', drawBall);
-}
-
-function keyEvent() {
-    document.body.addEventListener('keydown', event)
-}
-
-function animate() {
-    y += ySpead;
-    x += xSpead;
-
-    ctx.clearRect(0, 0, width, height);
-    ctx.beginPath();
-    drawBall(x, y)
-    ctx.closePath();
-
-    if (x < 0 || x >= width) {
-        xSpead = -xSpead
-    }
-    if (y < 0 || y > height) {
-        ySpead = -ySpead
-    }
-
-}
-
-
-function event(event) {
-    let direction = keyAction[event.keyCode]
-    circle(setDirection(direction))
-}
-
-
-function setDirection(direction) {
-    if (direction === 'up') {
-        xSpead = 0;
-        ySpead = -5;
-    } else if (direction === 'down') {
-        xSpead = 0;
-        ySpead = 5;
-    } else if (direction === 'left') {
-        xSpead = -5;
-        ySpead = 0;
-    } else if (direction === 'right') {
-        xSpead = 5;
-        ySpead = 0;
-    }
-
-}
-
-
-
-
-
-
