@@ -35,14 +35,25 @@ function init() {
 
 
 function drawBall(x, y) {
-    circle(x, y, 10, true)
+    circle(x, y, ballRadius, true)
+
 }
 
 
 function circle(x, y, fillCircle) {
     ctx.beginPath()
-    ctx.fillStyle = collorBall.value;;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 0;
+    ctx.shadowBlur = 9;
+    ctx.shadowColor = 'gold';
+    let gradient = ctx.createLinearGradient(0, 0, width, height);
+    gradient.addColorStop(0, "blue");
+    gradient.addColorStop(1, "white");
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, width, height);
+    ctx.strokeRect(0, 0, width, height);
     ctx.arc(x, y, ballRadius.value, 0, Math.PI * 2, false);
+    ctx.fillStyle = collorBall.value || 'gold';
     if (fillCircle) {
         ctx.fill()
     } else {
@@ -62,15 +73,16 @@ function keyEvent() {
 function animate() {
     y += ySpead;
     x += xSpead;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.clearRect(0, 0, width, height);
     ctx.beginPath();
     drawBall(x, y)
     ctx.closePath();
 
-    if (x < 0 || x >= canvas.width) {
+    if (x < 0 || x >= width) {
         xSpead = -xSpead
     }
-    if (y < 0 || y > canvas.height) {
+    if (y < 0 || y > height) {
         ySpead = -ySpead
     }
 
