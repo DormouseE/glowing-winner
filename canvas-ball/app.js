@@ -44,11 +44,11 @@ function circle(x, y, fillCircle) {
     ctx.beginPath()
     ctx.shadowOffsetX = 0;
     ctx.shadowOffsetY = 0;
-    ctx.shadowBlur = 9;
-    ctx.shadowColor = 'gold';
+    ctx.shadowBlur = 30;
+    ctx.shadowColor = 'silver';
     let gradient = ctx.createLinearGradient(0, 0, width, height);
-    gradient.addColorStop(0, "blue");
-    gradient.addColorStop(1, "white");
+    gradient.addColorStop(0, "gold");
+    gradient.addColorStop(1, "#EE82EE");
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
     ctx.strokeRect(0, 0, width, height);
