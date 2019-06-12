@@ -111,6 +111,3 @@ function setDirection(direction) {
 
 
 
-
-
-
