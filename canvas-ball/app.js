@@ -15,7 +15,7 @@ let xSpead = 0;
 let ySpead = -5;
 
 
-let keyAction = {
+const keyAction = {
     37: 'left',
     38: 'up',
     39: 'right',
@@ -28,8 +28,7 @@ init();
 
 function init() {
     setInterval(animate, 25);
-    onInputChange();
-    keyEvent()
+    addEvent();
 
 }
 
@@ -60,14 +59,13 @@ function circle(x, y, fillCircle) {
     }
 }
 
-function onInputChange() {
+function addEvent() {
     ballRadius.addEventListener('change', drawBall);
     collorBall.addEventListener('change', drawBall);
+    document.body.addEventListener('keydown', eventKey)
 }
 
-function keyEvent() {
-    document.body.addEventListener('keydown', event)
-}
+
 
 function animate() {
     y += ySpead;
@@ -88,7 +86,7 @@ function animate() {
 }
 
 
-function event(event) {
+function eventKey(event) {
     let direction = keyAction[event.keyCode]
     circle(setDirection(direction))
 }
